@@ -26,6 +26,7 @@ export default buildConfig({
   collections: [
     Users, Media, Posts, Projects, Certificates
   ],
+  cors: '*',
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
