@@ -45,6 +45,10 @@ export const Work: CollectionConfig = {
                     value: 'green',
                 },
                 {
+                    label: 'Emerald',
+                    value: 'emerald',
+                },
+                {
                     label: 'Amber',
                     value: 'amber',
                 },
