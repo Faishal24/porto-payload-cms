@@ -7,54 +7,54 @@ export const Projects: CollectionConfig = {
   },
   fields: [
     {
-        name: "title",
-        type: "text",
+      name: 'title',
+      type: 'text',
     },
     {
-        name: "type",
-        type: "select",
-        options: [
-            {
-                label: "Web (Violet)",
-                value: "Web",
-            },
-            {
-                label: "Mobile (Green)",
-                value: "Mobile",
-            },
-            {
-                label: "Web Mobile (Sky)",
-                value: "Web Mobile",
-            },
-            {
-                label: "Slicing UI (Amber)",
-                value: "Slicing UI",
-            },
-        ],
-        hasMany: false,
+      name: 'type',
+      type: 'select',
+      options: [
+        {
+          label: 'Web (Violet)',
+          value: 'Web',
+        },
+        {
+          label: 'Mobile (Green)',
+          value: 'Mobile',
+        },
+        {
+          label: 'Web Mobile (Sky)',
+          value: 'Web Mobile',
+        },
+        {
+          label: 'Slicing UI (Amber)',
+          value: 'Slicing UI',
+        },
+      ],
+      hasMany: false,
     },
     {
-        name: "tag_color",
-        label: "Tag Color",
-        type: "select",
-        options: [
-            {
-                label: "Violet",
-                value: "violet",
-            },
-            {
-                label: "Sky",
-                value: "sky",
-            },
-            {
-                label: "Green",
-                value: "green",
-            },
-            {
-                label: "Amber",
-                value: "amber",
-            },
-        ],
+      name: 'tag_color',
+      label: 'Tag Color',
+      type: 'select',
+      options: [
+        {
+          label: 'Violet',
+          value: 'violet',
+        },
+        {
+          label: 'Sky',
+          value: 'sky',
+        },
+        {
+          label: 'Green',
+          value: 'green',
+        },
+        {
+          label: 'Amber',
+          value: 'amber',
+        },
+      ],
     },
     {
       name: 'tech',
@@ -72,7 +72,7 @@ export const Projects: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      hasMany: true
+      hasMany: true,
     },
   ],
 }

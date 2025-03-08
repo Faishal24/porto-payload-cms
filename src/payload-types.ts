@@ -70,6 +70,8 @@ export interface Config {
     posts: Post;
     projects: Project;
     certificates: Certificate;
+    education: Education;
+    work: Work;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -81,6 +83,8 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     certificates: CertificatesSelect<false> | CertificatesSelect<true>;
+    education: EducationSelect<false> | EducationSelect<true>;
+    work: WorkSelect<false> | WorkSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -196,6 +200,36 @@ export interface Certificate {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "education".
+ */
+export interface Education {
+  id: string;
+  date?: string | null;
+  degree?: string | null;
+  'institute name'?: string | null;
+  description?: string | null;
+  tag?: string[] | null;
+  tag_color?: ('violet' | 'sky' | 'green' | 'amber' | 'red')[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "work".
+ */
+export interface Work {
+  id: string;
+  date?: string | null;
+  role?: string | null;
+  'company name'?: string | null;
+  description?: string | null;
+  tag?: string[] | null;
+  tag_color?: ('violet' | 'sky' | 'green' | 'amber' | 'red')[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -220,6 +254,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'certificates';
         value: string | Certificate;
+      } | null)
+    | ({
+        relationTo: 'education';
+        value: string | Education;
+      } | null)
+    | ({
+        relationTo: 'work';
+        value: string | Work;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -331,6 +373,34 @@ export interface CertificatesSelect<T extends boolean = true> {
   Title?: T;
   Link?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "education_select".
+ */
+export interface EducationSelect<T extends boolean = true> {
+  date?: T;
+  degree?: T;
+  'institute name'?: T;
+  description?: T;
+  tag?: T;
+  tag_color?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "work_select".
+ */
+export interface WorkSelect<T extends boolean = true> {
+  date?: T;
+  role?: T;
+  'company name'?: T;
+  description?: T;
+  tag?: T;
+  tag_color?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -12,6 +12,8 @@ import { Posts } from './collections/Posts'
 import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
 import { Projects } from './collections/Projects'
 import { Certificates } from './collections/Certificates'
+import { Education } from './collections/Education'
+import { Work } from './collections/Work'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +26,7 @@ export default buildConfig({
     },
   },
   collections: [
-    Users, Media, Posts, Projects, Certificates
+    Users, Media, Posts, Projects, Certificates, Education, Work
   ],
   cors: '*',
   editor: lexicalEditor(),
