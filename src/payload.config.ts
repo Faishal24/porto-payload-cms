@@ -30,6 +30,48 @@ export default buildConfig({
   ],
   cors: '*',
   editor: lexicalEditor(),
+  globals: [
+    {
+      slug: 'about',
+      access: {
+          read: () => true,
+      },
+      fields: [
+          {
+              name: 'name',
+              type: 'text',
+          },
+          {
+              name: 'bio',
+              type: 'text',
+          },
+          {
+            name: 'birthday',
+            type: 'text',
+          },
+          {
+            name: 'location',
+            type: 'text',
+          },
+          {
+            name: 'about me',
+            type: 'textarea',
+          },
+          {
+            name: 'web development',
+            type: 'text',
+          },
+          {
+            name: 'mobile development',
+            type: 'text',
+          },
+          {
+            name: 'other',
+            type: 'textarea',
+          }
+      ]
+    }
+  ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

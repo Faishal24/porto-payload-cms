@@ -92,8 +92,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    about: About;
+  };
+  globalsSelect: {
+    about: AboutSelect<false> | AboutSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -224,7 +228,7 @@ export interface Work {
   'company name'?: string | null;
   description?: string | null;
   tag?: string[] | null;
-  tag_color?: ('violet' | 'sky' | 'green' | 'amber' | 'red')[] | null;
+  tag_color?: ('violet' | 'sky' | 'green' | 'emerald' | 'amber' | 'red')[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -435,6 +439,40 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: string;
+  name?: string | null;
+  bio?: string | null;
+  birthday?: string | null;
+  location?: string | null;
+  'about me'?: string | null;
+  'web development'?: string | null;
+  'mobile development'?: string | null;
+  other?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  name?: T;
+  bio?: T;
+  birthday?: T;
+  location?: T;
+  'about me'?: T;
+  'web development'?: T;
+  'mobile development'?: T;
+  other?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
